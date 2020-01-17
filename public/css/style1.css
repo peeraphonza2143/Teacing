@@ -8,29 +8,6 @@
     background-color:#000022
     ;
 }
-.fontSetting
-{
-    font-family : Impact, Charcoal, sans-serif;
-    font-size: 50px;
-    font-weight: 1px;
-    color: #CDBE70;
-}
-
-.fontSetting2
-{
-    font-family : Impact, Charcoal, sans-serif;
-    font-size: 38px;
-    font-weight: 1px;
-    color: #CDBE70;
-}
-.fontSetting3
-{
-    text-align: center;
-}
-.fontSettingPX
-{
-    font-size: 100px;
-}
 .imglogo1{
     width: 10;
     height: 10;
