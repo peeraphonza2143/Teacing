@@ -76,7 +76,22 @@
         <div class="container">
           <header>
           <div>
-            <h1>Puck 16 Round1</h1>
+            <h1>Teaching academy</h1>
+            <label for="usr">Team Name</label>
+    <select name="team" placeholder="team" class="from-control" id="team">
+      <option value=1 >-1 KMITL-</option>
+      <option value=2 >2 KMUTT</option>
+      <option value=3 >3 KMUTNB</option>
+      <option value=4 >4 RMUTK</option>
+      <option value=5 >5 RMUTP</option>
+      <option value=6 >6 RMUTT</option>
+      <option value=7 >7 RMUTSB</option>
+      <option value=8 >8 RMUTI</option>
+      <option value=9 >9 RMUTSV</option>
+      <option value=10 >10 RMUTL</option>
+
+
+      </select>
             <h2> <button id="startbtn"  style="width:160px;height:80px; font-size:50px;"  class="btn btn-danger" value="START" onclick="startCount()">Start</button>
             &nbsp;&nbsp;&nbsp;
             <button id="stopbtn" style="width:160px;height:80px; font-size:50px;"  class="btn btn-danger" class="btn btn-danger" onclick="stop()">Stop</button>
@@ -120,39 +135,101 @@
 <script src="https://www.gstatic.com/firebasejs/5.9.1/firebase-database.js"></script>
 <!--------------------------------------------------------------------------------------------------------------------->
 <script>
+  var get = 1200;
   function startCount()
 {
-  const db = firebase.database().ref();
-  db.update({i:0})
-  get = document.getElementById("setsec").value=180;
-  display();
-}
-  function display() {
-  nowmin = Math.floor(get/60)
-  nowsec = get%60;
-  if (get>=0)
+  var nameTeam;
+  var team = document.getElementById("team").value;
+  if (team == 1) 
   {
-    document.getElementById("time").innerHTML = nowmin+"<span>:</span>"+nowsec;
-    document.getElementById("setsec").value = get;
-    get = get - 1 ;
-    setTimeout("display()",1000);
-    /*if (get==0)
-    {
-      document.getElementById("container").innerHTML="<audio autoplay='autoplay'><source src='ding.mp3' type = 'audio/mpeg'></audio>";
-    }*/
+    nameTeam = "KMITL/1";
   }
+  else if(team == 2)
+  {
+    nameTeam = "KMUTT/1";
+  }
+  else if(team == 3)
+  {
+    nameTeam = "KMUTNB/1";
+  }
+  else if(team == 4)
+  {
+    nameTeam = "RMUTK/1";
+  }
+  else if(team == 5)
+  {
+    nameTeam = "RMUTP/1";
+  }
+  else if(team == 6)
+  {
+    nameTeam = "RMUTT/1";
+  }
+  else if(team == 7)
+  {
+    nameTeam = "RMUTSB/1";
+  }
+  else if(team == 8)
+  {
+    nameTeam = "RMUTI/1";
+  }
+  else if(team == 9)
+  {
+    nameTeam = "RMUTSV/1";
+  }
+  else if(team == 10)
+  {
+    nameTeam = "RMUTL/1";
+  }
+  const db = firebase.database().ref(nameTeam);
+  db.update({i:1})
 }
-function resetTime()
-{
   
-}
 function stop()
 {
-  var sr = firebase.database().ref("KMTIL/1");
-  sr.update({i:0})
-   document.getElementById("setsec").value = get;
-   document.getElementById("nowmin").innerHTML = (2-nowmin) +"<span>:</span>"+ (60-nowsec);
-get = 0;
+  var nameTeam;
+  var team = document.getElementById("team").value;
+  if (team == 1) 
+  {
+    nameTeam = "KMITL/1";
+  }
+  else if(team == 2)
+  {
+    nameTeam = "KMUTT/1";
+  }
+  else if(team == 3)
+  {
+    nameTeam = "KMUTNB/1";
+  }
+  else if(team == 4)
+  {
+    nameTeam = "RMUTK/1";
+  }
+  else if(team == 5)
+  {
+    nameTeam = "RMUTP/1";
+  }
+  else if(team == 6)
+  {
+    nameTeam = "RMUTT/1";
+  }
+  else if(team == 7)
+  {
+    nameTeam = "RMUTSB/1";
+  }
+  else if(team == 8)
+  {
+    nameTeam = "RMUTI/1";
+  }
+  else if(team == 9)
+  {
+    nameTeam = "RMUTSV/1";
+  }
+  else if(team == 10)
+  {
+    nameTeam = "RMUTL/1";
+  }
+  const db = firebase.database().ref(nameTeam);
+  db.update({i:0})
 }
 </script>
 </body>
