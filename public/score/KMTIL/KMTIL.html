@@ -335,14 +335,31 @@ function startCount()
 function display() {
   	nowmin = Math.floor(get/60)
 	nowsec = get%60;
+	var db = firebase.database().ref("KMITL/1");	
 	if(b == 0)
 	{
 		if (get>=0)
-  	{
+  		{
 		if(nowsec < 10 && nowsec != 0)
 		{
 			nowmin = '0'+String(nowmin)
 		}
+		db.update({min:19-nowmin,sec:60-nowsec})
+		var fi = firebase.database().ref("KMITL/1/finish");
+		fi.once('value').then(function(dataSnapshot){
+		if(dataSnapshot.val()==2)
+			{
+				document.getElementById("finish").innerHTML = "ยังไม่ได้ทำการแข่งขัน";
+			}
+		else if (dataSnapshot.val() == 1)
+			{
+				document.getElementById("finish").innerHTML = "แข่งขันเสร็จสิ้น";
+			} 
+		else if (dataSnapshot.val() == 0)
+			{
+				document.getElementById("finish").innerHTML = "กำลังแข่งขัน";
+			}
+		})
   		document.getElementById("time").innerHTML = nowmin+"<span>:</span>"+nowsec;
   		get = get - 1 ;
 		setTimeout("display()",1000);
@@ -351,8 +368,6 @@ function display() {
     	stpr.once('value').then(function(dataSnapshot){
       	r = dataSnapshot.val();
       	if (r==0){
-			var db = firebase.database().ref("KMITL/1");
-			db.update({min:19-nowmin,sec:60-nowsec})
 			var sec = firebase.database().ref("KMITL/1/sec");
 			var min = firebase.database().ref("KMITL/1/min");
 			sec.once('value').then(function(dataSnapshot1){
