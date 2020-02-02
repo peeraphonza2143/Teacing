@@ -1,0 +1,156 @@
+<DOCTYPE html>
+    <html lang="en" dir="ltr">
+      <head>
+        <meta charset="utf-8"name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"/>
+        <title>Teaching academy</title>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js" ></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+        <style>
+        * {
+            box-sizing: border-box;
+        }
+        /* Style the header */
+        header {
+            background-color: #666;
+            padding: 30px;
+            text-align: center;
+            font-size: 35px;
+            color: white;
+        }
+    
+        /* Create two columns/boxes that floats next to each other */
+        nav {
+            float: left;
+            width: 50%;
+            height: 450px; /* only for demonstration, should be removed */
+            padding: 0px;
+        }
+    
+        /* Style the list inside the menu */
+        nav ul {
+            list-style-type: none;
+            padding: 0;
+        }
+    
+        article {
+            float: right;
+            padding: 20px;
+            width: 25%;
+            background-color: #b3d9ff;
+            height: 400px; /* only for demonstration, should be removed */
+        }
+    
+        /* Clear floats after the columns */
+        section:after {
+            content: "";
+            display: table;
+            clear: both;
+        }
+        aside {
+          float: left;
+          padding: 20px;
+          width: 25%;
+          background-color: #ff9999;
+          height: 400px;
+        }
+        /* Style the footer */
+        footer {
+            background-color: #777;
+            padding: 10px;
+            text-align: center;
+            color: white;
+        }
+    
+        /* Responsive layout - makes the two columns/boxes stack on top of each other instead of next to each other, on small screens */
+        @media (max-width: 600px) {
+            nav, article {
+                width: 100%;
+                height: auto;
+            }
+        }
+        </style>
+      </head>
+      <body>
+        <div class="container">
+          <header>
+          <div>
+            <h1>Puck 16 Round1</h1>
+            <h2> <button id="startbtn"  style="width:160px;height:80px; font-size:50px;"  class="btn btn-danger" value="START" onclick="startCount()">Start</button>
+            &nbsp;&nbsp;&nbsp;
+            <button id="stopbtn" style="width:160px;height:80px; font-size:50px;"  class="btn btn-danger" class="btn btn-danger" onclick="stop()">Stop</button>
+            &nbsp;&nbsp;&nbsp;<h2>
+          </header>
+          <br/>
+          
+          <footer>
+            <div>
+              <button id="resetbtn" class="btn btn-danger" onclick="resetTime()">Reset</button>
+                      &nbsp;&nbsp;&nbsp;
+    
+          </div>
+          </footer>
+        </div>
+    </div>
+       <!-- The core Firebase JS SDK is always required and must be listed first -->
+<script src="https://www.gstatic.com/firebasejs/7.8.0/firebase-app.js"></script>
+
+<!-- TODO: Add SDKs for Firebase products that you want to use
+     https://firebase.google.com/docs/web/setup#available-libraries -->
+<script src="https://www.gstatic.com/firebasejs/7.8.0/firebase-analytics.js"></script>
+
+<script>
+  // Your web app's Firebase configuration
+  var firebaseConfig = {
+    apiKey: "AIzaSyDcFQbnormi7O8V7Ch3T5tFvoJRQNtyaGQ",
+    authDomain: "teaching-time.firebaseapp.com",
+    databaseURL: "https://teaching-time.firebaseio.com",
+    projectId: "teaching-time",
+    storageBucket: "teaching-time.appspot.com",
+    messagingSenderId: "167940279056",
+    appId: "1:167940279056:web:63e88d36323a0a75e9b395",
+    measurementId: "G-ZZFLSB78GJ"
+  };
+  // Initialize Firebase
+  firebase.initializeApp(firebaseConfig);
+  firebase.analytics();
+</script>
+<script>
+  function startCount()
+{
+  const db = firebase.database().ref();
+  db.update({i:0})
+  get = document.getElementById("setsec").value=180;
+  display();
+}
+  function display() {
+  nowmin = Math.floor(get/60)
+  nowsec = get%60;
+  if (get>=0)
+  {
+    document.getElementById("time").innerHTML = nowmin+"<span>:</span>"+nowsec;
+    document.getElementById("setsec").value = get;
+    get = get - 1 ;
+    setTimeout("display()",1000);
+    /*if (get==0)
+    {
+      document.getElementById("container").innerHTML="<audio autoplay='autoplay'><source src='ding.mp3' type = 'audio/mpeg'></audio>";
+    }*/
+  }
+}
+function resetTime()
+{
+  
+}
+function stop()
+{
+  var sr = firebase.database().ref("KMTIL/1");
+  sr.update({i:0})
+   document.getElementById("setsec").value = get;
+   document.getElementById("nowmin").innerHTML = (2-nowmin) +"<span>:</span>"+ (60-nowsec);
+get = 0;
+}
+</script>
+</body>
+</html>

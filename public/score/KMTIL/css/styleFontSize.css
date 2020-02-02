@@ -1,0 +1,51 @@
+.fontsize{
+   
+    font-size: 1em;
+}
+.fontsize2{
+    
+    font-size: 1em;
+}
+
+@media (max-width: 748px) 
+{ 
+
+    .fontsize{
+   
+        font-size: 0.8em;
+    }
+    
+    .fontsize2{
+   
+        font-size: 0.8em;
+    }
+}
+@media (max-width: 650px) 
+{ 
+
+    
+    .fontsize2{
+   
+        font-size: 0.8em;
+    }
+}
+@media (max-width: 480px) 
+{ 
+
+    .fontsize{
+   
+        font-size: 0.4em;
+    }
+    .fontsize2{
+   
+        font-size: 0.2em;
+    }
+}
+
+@media (max-width: 520px) 
+{
+    .fontsize2{
+   
+        font-size: 0.7em;
+    }
+}
