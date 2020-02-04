@@ -57,7 +57,7 @@
         <div class="container">
           <div class="row no-gutters slider-text align-items-center justify-content-center">
             <div class="col-md-9 ftco-animate text-center">
-              <h1 class="mb-2 bread">รายการการแข่งขันพระจอมเกล้าลาดกระบัง</h1>
+              <h1 class="mb-2 bread">รายการการแข่งขันราชมงคลศรีวิชัย</h1>
             </div>
           </div>
         </div>
@@ -180,10 +180,10 @@
 			</h6>
 		  </div>
 		  <!-- Grid column -->
-  
-		</div>
-		<!-- Grid row-->
-		<hr class="rgba-white-light" style="margin: 0 15%;">
+
+	  </div>
+	  <!-- Grid row-->
+	  <hr class="rgba-white-light" style="margin: 0 15%;">
 
 	  <!-- Grid row-->
 	  <div class="row d-flex text-center justify-content-center mb-md-0 mb-4">
@@ -329,8 +329,8 @@ var a = 0;
 var b = 0;
 
 
-var sec = firebase.database().ref("KMITL/1/sec");
-var min = firebase.database().ref("KMITL/1/min");
+var sec = firebase.database().ref("RMUTSV/1/sec");
+var min = firebase.database().ref("RMUTSV/1/min");
 	sec.once('value').then(function(dataSnapshot1){
 		var ss = dataSnapshot1.val();
 		min.once('value').then(function(dataSnapshot2){
@@ -342,7 +342,7 @@ var min = firebase.database().ref("KMITL/1/min");
 			document.getElementById("time1").innerHTML = (mm) +"<span>:</span>"+ (ss);
 		})	
 	})
-var fi = firebase.database().ref("KMITL/1/finish");
+var fi = firebase.database().ref("RMUTSV/1/finish");
 	fi.once('value').then(function(dataSnapshot){
 	if(dataSnapshot.val()==2)
 	{
@@ -357,8 +357,8 @@ var fi = firebase.database().ref("KMITL/1/finish");
 		document.getElementById("finish1").innerHTML = "กำลังแข่งขัน";
 	}
 })
-var sec2 = firebase.database().ref("KMITL/2/sec");
-var min2 = firebase.database().ref("KMITL/2/min");
+var sec2 = firebase.database().ref("RMUTSV/2/sec");
+var min2 = firebase.database().ref("RMUTSV/2/min");
 	sec2.once('value').then(function(dataSnapshot1){
 		var ss = dataSnapshot1.val();
 		min2.once('value').then(function(dataSnapshot2){
@@ -370,7 +370,7 @@ var min2 = firebase.database().ref("KMITL/2/min");
 			document.getElementById("time2").innerHTML = (mm) +"<span>:</span>"+ (ss);
 		})	
 	})
-var fi2 = firebase.database().ref("KMITL/2/finish");
+var fi2 = firebase.database().ref("RMUTSV/2/finish");
 	fi2.once('value').then(function(dataSnapshot){
 	if(dataSnapshot.val()==2)
 	{
@@ -385,8 +385,8 @@ var fi2 = firebase.database().ref("KMITL/2/finish");
 		document.getElementById("finish2").innerHTML = "กำลังแข่งขัน";
 	}
 })
-var sec3 = firebase.database().ref("KMITL/3/sec");
-var min3 = firebase.database().ref("KMITL/3/min");
+var sec3 = firebase.database().ref("RMUTSV/3/sec");
+var min3 = firebase.database().ref("RMUTSV/3/min");
 	sec2.once('value').then(function(dataSnapshot1){
 		var ss = dataSnapshot1.val();
 		min2.once('value').then(function(dataSnapshot2){
@@ -398,7 +398,7 @@ var min3 = firebase.database().ref("KMITL/3/min");
 			document.getElementById("time3").innerHTML = (mm) +"<span>:</span>"+ (ss);
 		})	
 	})
-var fi3 = firebase.database().ref("KMITL/3/finish");
+var fi3 = firebase.database().ref("RMUTSV/3/finish");
 	fi3.once('value').then(function(dataSnapshot){
 	if(dataSnapshot.val()==2)
 	{
@@ -413,8 +413,8 @@ var fi3 = firebase.database().ref("KMITL/3/finish");
 		document.getElementById("finish3").innerHTML = "กำลังแข่งขัน";
 	}
 })
-var sec4 = firebase.database().ref("KMITL/4/sec");
-var min4 = firebase.database().ref("KMITL/4/min");
+var sec4 = firebase.database().ref("RMUTSV/4/sec");
+var min4 = firebase.database().ref("RMUTSV/4/min");
 	sec4.once('value').then(function(dataSnapshot1){
 		var ss = dataSnapshot1.val();
 		min4.once('value').then(function(dataSnapshot2){
@@ -426,7 +426,7 @@ var min4 = firebase.database().ref("KMITL/4/min");
 			document.getElementById("time4").innerHTML = (mm) +"<span>:</span>"+ (ss);
 		})	
 	})
-var fi4 = firebase.database().ref("KMITL/4/finish");
+var fi4 = firebase.database().ref("RMUTSV/4/finish");
 	fi4.once('value').then(function(dataSnapshot){
 	if(dataSnapshot.val()==2)
 	{
@@ -441,8 +441,8 @@ var fi4 = firebase.database().ref("KMITL/4/finish");
 		document.getElementById("finish4").innerHTML = "กำลังแข่งขัน";
 	}
 })
-var sec5 = firebase.database().ref("KMITL/5/sec");
-var min5 = firebase.database().ref("KMITL/5/min");
+var sec5 = firebase.database().ref("RMUTSV/5/sec");
+var min5 = firebase.database().ref("RMUTSV/5/min");
 	sec5.once('value').then(function(dataSnapshot1){
 		var ss = dataSnapshot1.val();
 		min5.once('value').then(function(dataSnapshot2){
@@ -454,7 +454,7 @@ var min5 = firebase.database().ref("KMITL/5/min");
 			document.getElementById("time5").innerHTML = (mm) +"<span>:</span>"+ (ss);
 		})	
 	})
-var fi5 = firebase.database().ref("KMITL/5/finish");
+var fi5 = firebase.database().ref("RMUTSV/5/finish");
 	fi5.once('value').then(function(dataSnapshot){
 	if(dataSnapshot.val()==2)
 	{
@@ -469,8 +469,8 @@ var fi5 = firebase.database().ref("KMITL/5/finish");
 		document.getElementById("finish5").innerHTML = "กำลังแข่งขัน";
 	}
 })
-var sec6 = firebase.database().ref("KMITL/6/sec");
-var min6 = firebase.database().ref("KMITL/6/min");
+var sec6 = firebase.database().ref("RMUTSV/6/sec");
+var min6 = firebase.database().ref("RMUTSV/6/min");
 	sec6.once('value').then(function(dataSnapshot1){
 		var ss = dataSnapshot1.val();
 		min6.once('value').then(function(dataSnapshot2){
@@ -482,7 +482,7 @@ var min6 = firebase.database().ref("KMITL/6/min");
 			document.getElementById("time6").innerHTML = (mm) +"<span>:</span>"+ (ss);
 		})	
 	})
-var fi6 = firebase.database().ref("KMITL/6/finish");
+var fi6 = firebase.database().ref("RMUTSV/6/finish");
 	fi6.once('value').then(function(dataSnapshot){
 	if(dataSnapshot.val()==2)
 	{
@@ -497,8 +497,8 @@ var fi6 = firebase.database().ref("KMITL/6/finish");
 		document.getElementById("finish6").innerHTML = "กำลังแข่งขัน";
 	}
 })
-var sec7 = firebase.database().ref("KMITL/7/sec");
-var min7 = firebase.database().ref("KMITL/7/min");
+var sec7 = firebase.database().ref("RMUTSV/7/sec");
+var min7 = firebase.database().ref("RMUTSV/7/min");
 	sec7.once('value').then(function(dataSnapshot1){
 		var ss = dataSnapshot1.val();
 		min7.once('value').then(function(dataSnapshot2){
@@ -510,7 +510,7 @@ var min7 = firebase.database().ref("KMITL/7/min");
 			document.getElementById("time7").innerHTML = (mm) +"<span>:</span>"+ (ss);
 		})	
 	})
-var fi7 = firebase.database().ref("KMITL/7/finish");
+var fi7 = firebase.database().ref("RMUTSV/7/finish");
 	fi7.once('value').then(function(dataSnapshot){
 	if(dataSnapshot.val()==2)
 	{
@@ -525,8 +525,8 @@ var fi7 = firebase.database().ref("KMITL/7/finish");
 		document.getElementById("finish7").innerHTML = "กำลังแข่งขัน";
 	}
 })
-var sec8 = firebase.database().ref("KMITL/8/sec");
-var min8 = firebase.database().ref("KMITL/8/min");
+var sec8 = firebase.database().ref("RMUTSV/8/sec");
+var min8 = firebase.database().ref("RMUTSV/8/min");
 	sec8.once('value').then(function(dataSnapshot1){
 		var ss = dataSnapshot1.val();
 		min8.once('value').then(function(dataSnapshot2){
@@ -538,7 +538,7 @@ var min8 = firebase.database().ref("KMITL/8/min");
 			document.getElementById("time8").innerHTML = (mm) +"<span>:</span>"+ (ss);
 		})	
 	})
-var fi8 = firebase.database().ref("KMITL/8/finish");
+var fi8 = firebase.database().ref("RMUTSV/8/finish");
 	fi8.once('value').then(function(dataSnapshot){
 	if(dataSnapshot.val()==2)
 	{
@@ -553,8 +553,8 @@ var fi8 = firebase.database().ref("KMITL/8/finish");
 		document.getElementById("finish8").innerHTML = "กำลังแข่งขัน";
 	}
 })
-var sec9 = firebase.database().ref("KMITL/9/sec");
-var min9 = firebase.database().ref("KMITL/9/min");
+var sec9 = firebase.database().ref("RMUTSV/9/sec");
+var min9 = firebase.database().ref("RMUTSV/9/min");
 	sec9.once('value').then(function(dataSnapshot1){
 		var ss = dataSnapshot1.val();
 		min9.once('value').then(function(dataSnapshot2){
@@ -566,7 +566,7 @@ var min9 = firebase.database().ref("KMITL/9/min");
 			document.getElementById("time9").innerHTML = (mm) +"<span>:</span>"+ (ss);
 		})	
 	})
-var fi9 = firebase.database().ref("KMITL/9/finish");
+var fi9 = firebase.database().ref("RMUTSV/9/finish");
 	fi9.once('value').then(function(dataSnapshot){
 	if(dataSnapshot.val()==2)
 	{
@@ -581,8 +581,8 @@ var fi9 = firebase.database().ref("KMITL/9/finish");
 		document.getElementById("finish9").innerHTML = "กำลังแข่งขัน";
 	}
 })
-var sec10 = firebase.database().ref("KMITL/10/sec");
-var min10 = firebase.database().ref("KMITL/10/min");
+var sec10 = firebase.database().ref("RMUTSV/10/sec");
+var min10 = firebase.database().ref("RMUTSV/10/min");
 	sec9.once('value').then(function(dataSnapshot1){
 		var ss = dataSnapshot1.val();
 		min10.once('value').then(function(dataSnapshot2){
@@ -594,7 +594,7 @@ var min10 = firebase.database().ref("KMITL/10/min");
 			document.getElementById("time10").innerHTML = (mm) +"<span>:</span>"+ (ss);
 		})	
 	})
-var fi10 = firebase.database().ref("KMITL/10/finish");
+var fi10 = firebase.database().ref("RMUTSV/10/finish");
 	fi10.once('value').then(function(dataSnapshot){
 	if(dataSnapshot.val()==2)
 	{
