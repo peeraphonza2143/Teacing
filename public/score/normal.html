@@ -1,0 +1,311 @@
+<DOCTYPE html>
+    <html lang="en" dir="ltr">
+      <head>
+        <meta charset="utf-8"name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"/>
+        <title>Teaching academy</title>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js" ></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+        <style>
+        * {
+            box-sizing: border-box;
+        }
+        /* Style the header */
+        header {
+            background-color: #666;
+            padding: 30px;
+            text-align: center;
+            font-size: 35px;
+            color: white;
+        }
+    
+        /* Create two columns/boxes that floats next to each other */
+        nav {
+            float: left;
+            width: 50%;
+            height: 450px; /* only for demonstration, should be removed */
+            padding: 0px;
+        }
+        .others {
+            color:black
+        }
+        /* Style the list inside the menu */
+        nav ul {
+            list-style-type: none;
+            padding: 0;
+        }
+    
+        article {
+            float: right;
+            padding: 20px;
+            width: 25%;
+            background-color: #b3d9ff;
+            height: 400px; /* only for demonstration, should be removed */
+        }
+    
+        /* Clear floats after the columns */
+        section:after {
+            content: "";
+            display: table;
+            clear: both;
+        }
+        aside {
+          float: left;
+          padding: 20px;
+          width: 25%;
+          background-color: #ff9999;
+          height: 400px;
+        }
+        /* Style the footer */
+        footer {
+            background-color: #777;
+            padding: 10px;
+            text-align: center;
+            color: white;
+        }
+    
+        /* Responsive layout - makes the two columns/boxes stack on top of each other instead of next to each other, on small screens */
+        @media (max-width: 600px) {
+            nav, article {
+                width: 100%;
+                height: auto;
+            }
+        }
+        </style>
+      </head>
+      <body>
+        <div class="container">
+          <header>
+          <div>
+            <h1>การแข่งขันสอนทฤษฎีทั่วไป</h1>
+            <div class="form-groub"></div>
+            <label for="usr">Team Name</label>
+    <select name="team" placeholder="team" style="color:gray" class="from-control" id="team">
+      <option value=1 >-1 KMITL-</option>
+      <option value=2 >2 KMUTT</option>
+      <option value=3 >3 KMUTNB</option>
+      <option value=4 >4 RMUTK</option>
+      <option value=5 >5 RMUTP</option>
+      <option value=6 >6 RMUTT</option>
+      <option value=7 >7 RMUTSB</option>
+      <option value=8 >8 RMUTI</option>
+      <option value=9 >9 RMUTSV</option>
+      <option value=10 >10 RMUTL</option>
+
+
+      </select>
+      </div>
+            <h2> <button id="startbtn"  style="width:160px;height:80px; font-size:50px;"  class="btn btn-danger" value="START" onclick="startCount()">Start</button>
+            &nbsp;&nbsp;&nbsp;
+            <button id="stopbtn" style="width:160px;height:80px; font-size:50px;"  class="btn btn-danger" class="btn btn-danger" onclick="stop()">Stop</button>
+            &nbsp;&nbsp;&nbsp;<h2>
+          </header>
+          <br/>
+          
+          <footer>
+            <div>
+              <button id="resetbtn" class="btn btn-danger" onclick="resetTime()">Reset</button>
+                      &nbsp;&nbsp;&nbsp;
+    
+          </div>
+          </footer>
+        </div>
+    </div>
+  </script>
+  <!-- The core Firebase JS SDK is always required and must be listed first -->
+<script src="https://www.gstatic.com/firebasejs/7.2.0/firebase-app.js"></script>
+
+<!-- TODO: Add SDKs for Firebase products that you want to use
+   https://firebase.google.com/docs/web/setup#available-libraries -->
+<script src="https://www.gstatic.com/firebasejs/7.2.0/firebase-analytics.js"></script>
+
+<script>
+  // Your web app's Firebase configuration
+  var firebaseConfig = {
+    apiKey: "AIzaSyDcFQbnormi7O8V7Ch3T5tFvoJRQNtyaGQ",
+    authDomain: "teaching-time.firebaseapp.com",
+    databaseURL: "https://teaching-time.firebaseio.com",
+    projectId: "teaching-time",
+    storageBucket: "teaching-time.appspot.com",
+    messagingSenderId: "167940279056",
+    appId: "1:167940279056:web:63e88d36323a0a75e9b395",
+    measurementId: "G-ZZFLSB78GJ"
+  };
+  // Initialize Firebase
+  firebase.initializeApp(firebaseConfig);
+  firebase.analytics();
+</script>
+<script src="https://www.gstatic.com/firebasejs/5.9.1/firebase-database.js"></script>
+<!--------------------------------------------------------------------------------------------------------------------->
+<script>
+  var nameTeam;
+  function startCount()
+{
+  
+  var team = document.getElementById("team").value;
+  if (team == 1) 
+  {
+    nameTeam = "KMITL/6";
+  }
+  else if(team == 2)
+  {
+    nameTeam = "KMUTT/6";
+  }
+  else if(team == 3)
+  {
+    nameTeam = "KMUTNB/6";
+  }
+  else if(team == 4)
+  {
+    nameTeam = "RMUTK/6";
+  }
+  else if(team == 5)
+  {
+    nameTeam = "RMUTP/6";
+  }
+  else if(team == 6)
+  {
+    nameTeam = "RMUTT/6";
+  }
+  else if(team == 7)
+  {
+    nameTeam = "RMUTSB/6";
+  }
+  else if(team == 8)
+  {
+    nameTeam = "RMUTI/6";
+  }
+  else if(team == 9)
+  {
+    nameTeam = "RMUTSV/6";
+  }
+  else if(team == 10)
+  {
+    nameTeam = "RMUTL/6";
+  }
+  const db = firebase.database().ref(nameTeam);
+  db.update({i:1,finish:0})
+  var strr=firebase.database().ref(nameTeam+"/i");
+  var a = 0;
+
+  strr.once('value').then(function(dataSnapshot){
+    console.log(dataSnapshot.val());
+    //document.getElementById("h3").innerHTML=dataSnapshot.val();
+    a = dataSnapshot.val();
+    if (a==1)
+    {
+      get =1200;
+      display();
+    }
+    else {
+		startCount();
+    }
+  })
+}
+  
+function stop()
+{
+  
+  var team = document.getElementById("team").value;
+  if (team == 1) 
+  {
+    nameTeam = "KMITL/6";
+  }
+  else if(team == 2)
+  {
+    nameTeam = "KMUTT/6";
+  }
+  else if(team == 3)
+  {
+    nameTeam = "KMUTNB/6";
+  }
+  else if(team == 4)
+  {
+    nameTeam = "RMUTK/6";
+  }
+  else if(team == 5)
+  {
+    nameTeam = "RMUTP/6";
+  }
+  else if(team == 6)
+  {
+    nameTeam = "RMUTT/6";
+  }
+  else if(team == 7)
+  {
+    nameTeam = "RMUTSB/6";
+  }
+  else if(team == 8)
+  {
+    nameTeam = "RMUTI/6";
+  }
+  else if(team == 9)
+  {
+    nameTeam = "RMUTSV/6";
+  }
+  else if(team == 10)
+  {
+    nameTeam = "RMUTL/6";
+  }
+  const db = firebase.database().ref(nameTeam);
+  db.update({i:0,finish:1})
+
+}
+var counter = 0;
+var counter2 = 0;
+var get = 0;
+var nowsec = 0;
+var nowmin = 3;
+var value = 0;
+var a = 0;
+var b = 0;
+
+
+function display() {
+  nowmin = Math.floor(get/60)
+	nowsec = get%60;
+	var db = firebase.database().ref(nameTeam);	
+	if(b == 0)
+	{
+		if (get>=0)
+  		{
+		if(nowsec < 10 && nowsec != 0)
+		{
+			nowmin = '0'+String(nowmin)
+		}
+		db.update({min:19-nowmin,sec:60-nowsec})
+  	get = get - 1 ;
+		setTimeout("display()",1000);
+		var r = 0;
+    	var stpr = firebase.database().ref(nameTeam+"/i");
+    	stpr.once('value').then(function(dataSnapshot){
+      	r = dataSnapshot.val();
+      	if (r==0){
+			var sec = firebase.database().ref(nameTeam+"/sec");
+			var min = firebase.database().ref(nameTeam+"/min");
+			sec.once('value').then(function(dataSnapshot1){
+				var ss = dataSnapshot1.val();
+			min.once('value').then(function(dataSnapshot2){
+				var mm = dataSnapshot2.val();
+				if(ss < 10)
+				{
+					ss = '0'+String(ss)
+				}
+			})	
+			})
+			get = 0;
+			b = 1;
+      	}
+  		})
+  		}
+	}
+	else
+	{
+		console.log(".")
+	}  
+  	
+}
+</script>
+</body>
+</html>
