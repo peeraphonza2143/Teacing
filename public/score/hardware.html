@@ -196,7 +196,7 @@
     a = dataSnapshot.val();
     if (a==1)
     {
-      get =1200;
+      get =0;
       display();
     }
     else {
@@ -275,8 +275,8 @@ function display() {
 		{
 			nowmin = '0'+String(nowmin)
 		}
-		db.update({min:19-nowmin,sec:60-nowsec})
-  	get = get - 1 ;
+		db.update({min:nowmin,sec:nowsec})
+  	get = get + 1 ;
 		setTimeout("display()",1000);
 		var r = 0;
     	var stpr = firebase.database().ref(nameTeam+"/i");
