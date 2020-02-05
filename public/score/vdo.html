@@ -104,7 +104,9 @@
           <br/>
           
           <footer>
-
+            <button id="rst" style="width:160px;height:80px; font-size:50px;"  class="btn btn-danger" class="btn btn-danger" onclick="restart()">reset</button>
+            &nbsp;&nbsp;&nbsp;<h2>
+            
           </footer>
         </div>
     </div>
@@ -137,6 +139,7 @@
 <script>
   var nameTeam;
   var n = "9";
+  startCount();
   function startCount()
 {
   
@@ -302,6 +305,10 @@ function display() {
 		console.log(".")
 	}  
   	
+}
+function restart()
+{
+  location.reload();
 }
 </script>
 </body>
