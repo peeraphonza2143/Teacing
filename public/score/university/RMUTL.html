@@ -404,9 +404,9 @@ var fi2 = firebase.database().ref("RMUTL/2/finish");
 })
 var sec3 = firebase.database().ref("RMUTL/3/sec");
 var min3 = firebase.database().ref("RMUTL/3/min");
-	sec2.once('value').then(function(dataSnapshot1){
+	sec3.once('value').then(function(dataSnapshot1){
 		var ss = dataSnapshot1.val();
-		min2.once('value').then(function(dataSnapshot2){
+		min3.once('value').then(function(dataSnapshot2){
 			var mm = dataSnapshot2.val();
 			if(ss < 10)
 			{
@@ -600,7 +600,7 @@ var fi9 = firebase.database().ref("RMUTL/9/finish");
 })
 var sec10 = firebase.database().ref("RMUTL/10/sec");
 var min10 = firebase.database().ref("RMUTL/10/min");
-	sec9.once('value').then(function(dataSnapshot1){
+	sec10.once('value').then(function(dataSnapshot1){
 		var ss = dataSnapshot1.val();
 		min10.once('value').then(function(dataSnapshot2){
 			var mm = dataSnapshot2.val();
